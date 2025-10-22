@@ -84,4 +84,32 @@ public class PrimeSumCalculatorTest {
 
         assertThat(result).isEqualTo(expectd);
     }
+    @Test
+    public void givenSingleZero_whenCalculateSum_thenReturnZero(){
+        //Given
+        int star = 0;
+        int end = 0;
+
+        //When
+        int result = primeSumaCalculator.sumPrimeNumbers(star,end);
+
+        //Then
+        int expectd = 0;
+
+        assertThat(result).isEqualTo(expectd);
+    }
+    @Test
+    public void givenNegativeNumbers_whenCalculateSum_thenReturnZero(){
+        //Given
+        int star = -8;
+        int end = -1;
+
+        //When
+        int result = primeSumaCalculator.sumPrimeNumbers(star,end);
+
+        //Then
+        int expectd = 0;
+
+        assertThat(result).isEqualTo(expectd);
+    }
 }

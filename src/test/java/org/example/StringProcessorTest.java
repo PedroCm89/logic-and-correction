@@ -86,4 +86,63 @@ public class StringProcessorTest {
         int expect =0;
         assertThat(result).isEqualTo(expect);
     }
+
+    @Test
+    public void givenOverflowNumber_whenExtractAndSum_thenThrowsException(){
+
+        //Given
+        String sentence = "123456789";
+
+        //When
+        int result = stringProcessor.extractNumbersAndSum(sentence);
+
+        //Then
+        int expected = 123456789;
+        assertThat(result).isEqualTo(expected);
+
+    }
+
+    @Test
+    public void givenStringWithMultipleEmbeddedNumbers_whenExtractAndSum_thenReturnCorrectSum(){
+
+        //Given
+        String sentence = "asd123asd1234asd3456";
+
+        //When
+        int result = stringProcessor.extractNumbersAndSum(sentence);
+
+        //Then
+        int expect = 4813;
+        assertThat(result).isEqualTo(expect);
+    }
+
+    @Test
+    public void giveOnlyOneNumber_whenExtractedAndSum_thenRestunSameNumber(){
+
+        //Given
+        String sentence= "4";
+
+        //When
+        int result = stringProcessor.extractNumbersAndSum(sentence);
+
+        //Then
+        int expected= 4;
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void givenMixtedNumberPositiveAndNegativeAndWord_whenExtractedAndSum_thenRetunCorrectSum(){
+
+        //Given
+        String sentence = "rt2-39,5";
+
+        //When
+        int result = stringProcessor.extractNumbersAndSum(sentence);
+
+        //Then
+        int expect = 46;
+        assertThat(result).isEqualTo(expect);
+    }
+
+
 }

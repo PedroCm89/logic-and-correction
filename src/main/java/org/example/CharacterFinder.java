@@ -33,7 +33,7 @@ public class CharacterFinder {
         Character nonRepeated = Character.MIN_VALUE;
 
         // 1. Handle edge cases: null or empty input.
-        if (text == null || text.isEmpty()) {
+        if (text == null) {
             return nonRepeated;
         }
 
@@ -42,24 +42,22 @@ public class CharacterFinder {
         char[] characters = text.toLowerCase().toCharArray();
 
         // Use a HashMap to store the frequency (count) of each character.
-        Map<Character, Integer> worfText = new HashMap<>();
+        Map<Character, Integer> wordText = new HashMap<>();
 
         // 2. FIRST PASS (O(N)): Count character frequencies.
         for (char c : characters) {
-            worfText.put(c, worfText.getOrDefault(c, 0) + 1);
+            wordText.put(c, wordText.getOrDefault(c, 0) + 1);
         }
 
         // 3. SECOND PASS (O(N)): Iterate over the array again to maintain insertion order.
         // The first character found with a frequency of 1 is the answer.
         for (char c : characters) {
-            if (worfText.get(c) == 1) {
+            if (wordText.get(c) == 1) {
                 nonRepeated = c;
                 // Crucial: Stop immediately upon finding the first unique character.
                 break;
             }
         }
-
-
         return nonRepeated;
     }
 }

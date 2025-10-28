@@ -6,10 +6,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CharacterFinderTest {
 
-    CharacterFinder characterFinder = new CharacterFinder();
+    private final CharacterFinder characterFinder = new CharacterFinder();
 
     @Test
-    public void givenSimpleUnique_whenFind_thenReturnFirstChar() {
+    public void givenSimpleUnique_whenFindFirstNonRepeated_thenReturnFirstChar() {
         //Given
         String text = "alphabet";
 
@@ -22,7 +22,7 @@ public class CharacterFinderTest {
     }
 
     @Test
-    public void givenCaseInsensitiveInput_whenFind_thenReturnCorrectChar() {
+    public void givenCaseInsensitiveInput_whenFindFirstNonRepeated_thenReturnCorrectChar() {
         //Given
         String text = "sTreSss";
 
@@ -35,7 +35,7 @@ public class CharacterFinderTest {
     }
 
     @Test
-    public void givenAllRepeated_whenFind_thenReturnEmpty() {
+    public void givenAllRepeated_whenFindFirstNonRepeated_thenReturnEmpty() {
 
         //Give
         String text = "aabbcc";
@@ -49,7 +49,7 @@ public class CharacterFinderTest {
     }
 
     @Test
-    public void givenEmptyString_whenFind_thenReturnEmpty() {
+    public void givenEmptyString_whenFindFirstNonRepeated_thenReturnEmpty() {
 
         //Given
         String text = "";
@@ -63,7 +63,7 @@ public class CharacterFinderTest {
     }
 
     @Test
-    public void givenNullInput_whenFind_thenReturnEmpty() {
+    public void givenNullInput_whenFindFirstNonRepeated_thenReturnEmpty() {
 
         //Given
         String text = null;

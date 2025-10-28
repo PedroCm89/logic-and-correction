@@ -38,23 +38,21 @@ public class CharacterFinder {
         }
 
         // Prepare the input: convert to lowercase for case-insensitivity and get the character array.
-        // This array preserves the original order of characters.
         char[] characters = text.toLowerCase().toCharArray();
 
-        // Use a HashMap to store the frequency (count) of each character.
-        Map<Character, Integer> wordText = new HashMap<>();
 
-        // 2. FIRST PASS (O(N)): Count character frequencies.
+        Map<Character, Integer> chartCounters = new HashMap<>();
+
+        // 2.  Count character frequencies.
         for (char c : characters) {
-            wordText.put(c, wordText.getOrDefault(c, 0) + 1);
+            chartCounters.put(c, chartCounters.getOrDefault(c, 0) + 1);
         }
 
-        // 3. SECOND PASS (O(N)): Iterate over the array again to maintain insertion order.
+        // 3. Iterate over the array again to maintain insertion order.
         // The first character found with a frequency of 1 is the answer.
         for (char c : characters) {
-            if (wordText.get(c) == 1) {
+            if (chartCounters.get(c) == 1) {
                 nonRepeated = c;
-                // Crucial: Stop immediately upon finding the first unique character.
                 break;
             }
         }

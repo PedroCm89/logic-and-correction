@@ -9,7 +9,7 @@ public class TextNumberExtractorTest {
     TextNumberExtractor textNumberExtractor = new TextNumberExtractor();
 
     @Test
-    void givenNullInput_whenExtract_thenReturnZero(){
+    void givenNullInput_whenExtract_thenReturnZero() {
 
         //Give
         String text = null;
@@ -19,12 +19,12 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=0;
+        int expect = 0;
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
-    void givenEmptyString_whenExtract_thenReturnZero(){
+    void givenEmptyString_whenExtract_thenReturnZero() {
 
         //Give
         String text = "";
@@ -34,12 +34,12 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=0;
+        int expect = 0;
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
-    void givenOnlyText_whenExtract_thenReturnZero(){
+    void givenOnlyText_whenExtract_thenReturnZero() {
 
         //Give
         String text = "This has no numbers";
@@ -49,12 +49,12 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=0;
+        int expect = 0;
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
-    void givenNumbersInMiddle_whenExtract_thenReturnSum(){
+    void givenNumbersInMiddle_whenExtract_thenReturnSum() {
 
         //Give
         String text = "abc123def456gh";
@@ -64,12 +64,12 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=579;
+        int expect = 579;
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
-    void givenStringEndingWithNumber_whenExtract_thenReturnSum(){
+    void givenStringEndingWithNumber_whenExtract_thenReturnSum() {
 
         //Give
         String text = "Item 10 Cost 200";
@@ -79,13 +79,13 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=210;
+        int expect = 210;
         assertThat(result).isEqualTo(expect);
     }
 
 
     @Test
-    void givenConsecutiveNonDigits_whenExtract_thenReturnSum(){
+    void givenConsecutiveNonDigits_whenExtract_thenReturnSum() {
 
         //Give
         String text = "10..20;;30";
@@ -95,12 +95,12 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=60;
+        int expect = 60;
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
-    void givenOnlyNumberString_whenExtract_thenReturnNumber(){
+    void givenOnlyNumberString_whenExtract_thenReturnNumber() {
 
         //Give
         String text = "999";
@@ -110,7 +110,7 @@ public class TextNumberExtractorTest {
         int result = textNumberExtractor.sumNumbersWithoutRegex(text);
 
         //Then
-        int expect=999;
+        int expect = 999;
         assertThat(result).isEqualTo(expect);
     }
 }

@@ -28,8 +28,8 @@ public class PrimeSumaCalculator {
         }
         // Optimization: only iterate up to the square root of the number.
         // If a number has a divisor greater than its square root, it must have one less than its square root.
-        for (int i = 2; i * i <= number; i++) {
-            if (number % i == 0) {
+        for (int divisor = 2; divisor * divisor <= number; divisor++) {
+            if (number % divisor == 0) {
                 return false;
             }
         }

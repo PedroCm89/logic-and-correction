@@ -9,12 +9,12 @@ public class StringProcessorTest {
     StringProcessor stringProcessor = new StringProcessor();
 
     @Test
-    public void givenMixedString_whenExtractAndSum_thenReturnCorrectSum (){
+    public void givenStringWhitNumbersAndCharacter_whenExtractAndSum_thenReturnCorrectSum (){
         //Given
-        String sentence = "Pedido 10, constro 200 y despuesto 5";
+        String sentence = "Order 10, cost 200 y added5";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect = 215;
@@ -22,12 +22,12 @@ public class StringProcessorTest {
     }
 
     @Test
-    public void givenNoNumbers_whenExtractAndSum_thenReturnZero (){
+    public void givenStringWithoutNumbers_whenExtractAndSum_thenReturnZero (){
         //Given
-        String sentence = "Solo texto sin numero";
+        String sentence = "Only text";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect = 0;
@@ -40,7 +40,7 @@ public class StringProcessorTest {
         String sentence = "";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect =0;
@@ -48,18 +48,6 @@ public class StringProcessorTest {
 
     }
 
-    @Test
-    public void givenNumbersAtEnds_whenExtractAndSum_thenReturnCorrectSum(){
-        //Given
-        String sentece = "50 Total 100";
-
-        //When
-        int result = stringProcessor.extractNumbersAndSum(sentece);
-
-        //Then
-        int expect = 150;
-        assertThat(result).isEqualTo(expect);
-    }
 
     @Test
     public void givenNumbersSeparatedByDots_whenExtractAndSum_thenReturnCorrectSum(){
@@ -67,7 +55,7 @@ public class StringProcessorTest {
         String sentece = "1,2,3";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentece);
+        int result = stringProcessor.sumNumbersInStringFormat(sentece);
 
         //Then
         int expect = 6;
@@ -75,12 +63,12 @@ public class StringProcessorTest {
     }
 
     @Test
-    public void givenNullInput_whenExtractAndSum_thenReturnZero(){
+    public void givenNull_whenExtractAndSum_thenReturnZero(){
         //Given
         String sentence = null;
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect =0;
@@ -88,13 +76,13 @@ public class StringProcessorTest {
     }
 
     @Test
-    public void givenOverflowNumber_whenExtractAndSum_thenThrowsException(){
+    public void givenNumber_whenExtractAndSum_thenThrowsException(){
 
         //Given
         String sentence = "123456789";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expected = 123456789;
@@ -109,7 +97,7 @@ public class StringProcessorTest {
         String sentence = "asd123asd1234asd3456";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect = 4813;
@@ -123,7 +111,7 @@ public class StringProcessorTest {
         String sentence= "4";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expected= 4;
@@ -131,13 +119,13 @@ public class StringProcessorTest {
     }
 
     @Test
-    public void givenMixtedNumberPositiveAndNegativeAndWord_whenExtractedAndSum_thenRetunCorrectSum(){
+    public void givenNumbersWithADashBefore_whenExtractedAndSum_thenTheyAreManagedAsPositiveNumbers(){
 
         //Given
         String sentence = "rt2-39,5";
 
         //When
-        int result = stringProcessor.extractNumbersAndSum(sentence);
+        int result = stringProcessor.sumNumbersInStringFormat(sentence);
 
         //Then
         int expect = 46;

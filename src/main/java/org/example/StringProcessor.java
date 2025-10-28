@@ -4,11 +4,13 @@
  * It handles null or empty input safely by returning 0.
  *
  * Example 1:
- * Input: "Pedido 10, costo 200 y descuento 5."
+ * Input: "Order 10, cost 200 y added 5."
  * Output: 215 (10 + 200 + 5)
  *
+ * Only positive numbers are added.
+ * If the operator ‘-’ is added in front of a number, it is ignored and read as a positive number.
  * Example 2:
- * Input: "50 Total 100"
+ * Input: "50 discount -100"
  * Output: 150 (50 + 100)
  *
  * @param text The input string containing mixed characters and numbers.
@@ -19,10 +21,9 @@ package org.example;
 
 public class StringProcessor {
 
-    public int extractNumbersAndSum(String text) {
+    public int sumNumbersInStringFormat(String text) {
         int sumResult = 0;
 
-        // Validation: If the input is null or empty, return 0 as requested by the tests.
         if (text == null || text.isEmpty()) {
             return sumResult;
         }

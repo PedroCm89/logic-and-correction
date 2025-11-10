@@ -1,4 +1,4 @@
-package org.example;
+package org.example.logic.exercises;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

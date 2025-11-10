@@ -1,5 +1,6 @@
-package org.example;
+package org.example.logic.exercises;
 
+import org.example.logic.exercises.FilterEvenNumber;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;

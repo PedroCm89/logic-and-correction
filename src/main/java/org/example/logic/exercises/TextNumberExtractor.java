@@ -1,4 +1,4 @@
-package org.example;
+package org.example.logic.exercises;
 
 /**
  * Extracts and sums all positive integer numbers found within a given text string.

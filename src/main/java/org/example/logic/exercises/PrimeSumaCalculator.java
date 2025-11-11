@@ -7,7 +7,7 @@
  * they must be automatically swapped to ensure the range is always valid.
  */
 
-package org.example;
+package org.example.logic.exercises;
 
 import java.util.ArrayList;
 import java.util.List;

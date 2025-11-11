@@ -17,7 +17,7 @@
  * @return The sum of all extracted integer numbers, or 0 if no numbers are found or the input is invalid.
  */
 
-package org.example;
+package org.example.logic.exercises;
 
 public class StringProcessor {
 

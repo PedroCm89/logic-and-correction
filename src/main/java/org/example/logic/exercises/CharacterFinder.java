@@ -21,7 +21,7 @@
  * @return The first non-repeated character, or Character.MIN_VALUE if none is found or the input is null/empty.
  */
 
-package org.example;
+package org.example.logic.exercises;
 
 import java.util.HashMap;
 import java.util.Map;

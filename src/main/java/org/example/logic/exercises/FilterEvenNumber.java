@@ -1,4 +1,4 @@
-package org.example;
+package org.example.logic.exercises;
 
 import java.util.LinkedList;
 import java.util.List;
